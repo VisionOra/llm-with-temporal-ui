@@ -343,25 +343,6 @@ Real-time workflow status updates via WebSocket connections.
    - CI/CD pipeline
    - Production deployment
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-For support and questions:
-- Create an issue in the repository
-- Review existing documentation
-- Check Temporal and OpenAI documentation
-
 ---
 
 **Built with**: FastAPI, Temporal, OpenAI, Docker, HTML/CSS/JavaScript 
