@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporal LLM Web App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-cogs"></i> Temporal LLM Web App</h1>
+            <p class="subtitle">Orchestrate workflows and AI processing with Temporal</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="card input-section">
+                <h2><i class="fas fa-edit"></i> Input Text</h2>
+                <div class="input-group">
+                    <textarea 
+                        id="inputText" 
+                        placeholder="Enter your text here..."
+                        rows="4"
+                        maxlength="10000"
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="charCount">0</span>/10,000 characters
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+                <button id="reverseBtn" class="btn btn-primary">
+                    <i class="fas fa-arrows-alt-h"></i>
+                    Reverse String (Temporal)
+                </button>
+                
+                <div class="llm-actions">
+                    <button id="summarizeBtn" class="btn btn-secondary">
+                        <i class="fas fa-compress-alt"></i>
+                        Summarize (LLM)
+                    </button>
+                    <button id="rephraseBtn" class="btn btn-secondary">
+                        <i class="fas fa-exchange-alt"></i>
+                        Rephrase (LLM)
+                    </button>
+                    <button id="analyzeBtn" class="btn btn-secondary">
+                        <i class="fas fa-chart-line"></i>
+                        Analyze (LLM)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results">
+                <!-- Temporal Workflow Result -->
+                <div class="card result-card" id="temporalResult">
+                    <h3><i class="fas fa-project-diagram"></i> Temporal Workflow Result</h3>
+                    <div class="result-content">
+                        <div class="result-item">
+                            <label>Original Text:</label>
+                            <div id="originalText" class="result-value"></div>
+                        </div>
+                        <div class="result-item">
+                            <label>Reversed Text:</label>
+                            <div id="reversedText" class="result-value"></div>
+                        </div>
+                        <div class="result-meta">
+                            <span id="workflowId" class="meta-item"></span>
+                            <span id="processingTime" class="meta-item"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LLM Result -->
+                <div class="card result-card" id="llmResult">
+                    <h3><i class="fas fa-brain"></i> LLM Processing Result</h3>
+                    <div class="result-content">
+                        <div class="result-item">
+                            <label id="llmOperationLabel">Operation:</label>
+                            <div id="llmOutput" class="result-value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Messages -->
+            <div id="statusMessages" class="status-messages"></div>
+        </div>
+
+        <!-- System Status -->
+        <div class="system-status">
+            <h3><i class="fas fa-heartbeat"></i> System Status</h3>
+            <div class="status-indicators">
+                <div class="status-item">
+                    <span class="status-label">Temporal:</span>
+                    <span id="temporalStatus" class="status-indicator">
+                        <i class="fas fa-circle"></i> Checking...
+                    </span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">LLM Service:</span>
+                    <span id="llmStatus" class="status-indicator">
+                        <i class="fas fa-circle"></i> Checking...
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Temporal LLM Web App | Built with FastAPI, Temporal, and OpenAI</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p id="loadingText">Processing...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
